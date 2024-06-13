@@ -18,7 +18,7 @@ void main() {
           ),
         ),
       ],
-      child: AppWidget(),
+      child: const AppWidget(),
     ),
   );
 }

@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../bloc_example_bloc.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -21,12 +23,12 @@ class _HomePageState extends State<HomePage> {
     final bloc = Provider.of<BlocExampleBloc>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Home Page')),
+      appBar: AppBar(title: const Text('Home Page')),
       body: FutureBuilder(
         future: _fetchExamplesFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           } else if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else {
