@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
               itemCount: bloc.examples.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(bloc.examples[index].name),
+                  title: Text("${bloc.examples[index].id} + ${bloc.examples[index].name}"),
                 );
               },
             );
