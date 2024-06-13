@@ -15,7 +15,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _fetchExamplesFuture = Provider.of<BlocExampleBloc>(context, listen: false).fetchExamples();
+    _fetchExamplesFuture =
+        Provider.of<BlocExampleBloc>(context, listen: false).fetchExamples();
   }
 
   @override
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
         future: _fetchExamplesFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Text('Error: ${snapshot.error}');
           } else {
@@ -36,7 +37,8 @@ class _HomePageState extends State<HomePage> {
               itemCount: bloc.examples.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text("${bloc.examples[index].id} + ${bloc.examples[index].name}"),
+                  title: Text(
+                      "${bloc.examples[index].id} + ${bloc.examples[index].name}"),
                 );
               },
             );
