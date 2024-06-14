@@ -9,11 +9,11 @@ part of 'dogs_breeds_model.dart';
 DogsBreedsModel _$DogsBreedsModelFromJson(Map<String, dynamic> json) =>
     DogsBreedsModel(
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => BreedsData.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => BreedsDataModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       links: json['links'] == null
           ? null
-          : Links.fromJson(json['links'] as Map<String, dynamic>),
+          : LinksModel.fromJson(json['links'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$DogsBreedsModelToJson(DogsBreedsModel instance) =>
@@ -22,19 +22,21 @@ Map<String, dynamic> _$DogsBreedsModelToJson(DogsBreedsModel instance) =>
       'links': instance.links,
     };
 
-BreedsData _$BreedsDataFromJson(Map<String, dynamic> json) => BreedsData(
+BreedsDataModel _$BreedsDataModelFromJson(Map<String, dynamic> json) =>
+    BreedsDataModel(
       id: json['id'] as String?,
       type: json['type'] as String?,
       attributes: json['attributes'] == null
           ? null
-          : Attributes.fromJson(json['attributes'] as Map<String, dynamic>),
+          : AttributesModel.fromJson(
+              json['attributes'] as Map<String, dynamic>),
       relationships: json['relationships'] == null
           ? null
-          : Relationships.fromJson(
+          : RelationshipsModel.fromJson(
               json['relationships'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$BreedsDataToJson(BreedsData instance) =>
+Map<String, dynamic> _$BreedsDataModelToJson(BreedsDataModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'type': instance.type,
@@ -42,22 +44,23 @@ Map<String, dynamic> _$BreedsDataToJson(BreedsData instance) =>
       'relationships': instance.relationships,
     };
 
-Attributes _$AttributesFromJson(Map<String, dynamic> json) => Attributes(
+AttributesModel _$AttributesModelFromJson(Map<String, dynamic> json) =>
+    AttributesModel(
       name: json['name'] as String?,
       description: json['description'] as String?,
       life: json['life'] == null
           ? null
-          : Life.fromJson(json['life'] as Map<String, dynamic>),
+          : LifeModel.fromJson(json['life'] as Map<String, dynamic>),
       maleWeight: json['male_weight'] == null
           ? null
-          : Weight.fromJson(json['male_weight'] as Map<String, dynamic>),
+          : WeightModel.fromJson(json['male_weight'] as Map<String, dynamic>),
       femaleWeight: json['female_weight'] == null
           ? null
-          : Weight.fromJson(json['female_weight'] as Map<String, dynamic>),
+          : WeightModel.fromJson(json['female_weight'] as Map<String, dynamic>),
       hypoallergenic: json['hypoallergenic'] as bool?,
     );
 
-Map<String, dynamic> _$AttributesToJson(Attributes instance) =>
+Map<String, dynamic> _$AttributesModelToJson(AttributesModel instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
@@ -67,68 +70,74 @@ Map<String, dynamic> _$AttributesToJson(Attributes instance) =>
       'hypoallergenic': instance.hypoallergenic,
     };
 
-Weight _$WeightFromJson(Map<String, dynamic> json) => Weight(
+WeightModel _$WeightModelFromJson(Map<String, dynamic> json) => WeightModel(
       max: (json['max'] as num?)?.toInt(),
       min: (json['min'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$WeightToJson(Weight instance) => <String, dynamic>{
+Map<String, dynamic> _$WeightModelToJson(WeightModel instance) =>
+    <String, dynamic>{
       'max': instance.max,
       'min': instance.min,
     };
 
-Life _$LifeFromJson(Map<String, dynamic> json) => Life(
+LifeModel _$LifeModelFromJson(Map<String, dynamic> json) => LifeModel(
       max: (json['max'] as num?)?.toInt(),
       min: (json['min'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$LifeToJson(Life instance) => <String, dynamic>{
+Map<String, dynamic> _$LifeModelToJson(LifeModel instance) => <String, dynamic>{
       'max': instance.max,
       'min': instance.min,
     };
 
-Relationships _$RelationshipsFromJson(Map<String, dynamic> json) =>
-    Relationships(
+RelationshipsModel _$RelationshipsModelFromJson(Map<String, dynamic> json) =>
+    RelationshipsModel(
       group: json['group'] == null
           ? null
-          : Group.fromJson(json['group'] as Map<String, dynamic>),
+          : GroupModel.fromJson(json['group'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$RelationshipsToJson(Relationships instance) =>
+Map<String, dynamic> _$RelationshipsModelToJson(RelationshipsModel instance) =>
     <String, dynamic>{
       'group': instance.group,
     };
 
-Group _$GroupFromJson(Map<String, dynamic> json) => Group(
+GroupModel _$GroupModelFromJson(Map<String, dynamic> json) => GroupModel(
       data: json['data'] == null
           ? null
-          : RelationshipData.fromJson(json['data'] as Map<String, dynamic>),
+          : RelationshipDataModel.fromJson(
+              json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$GroupToJson(Group instance) => <String, dynamic>{
+Map<String, dynamic> _$GroupModelToJson(GroupModel instance) =>
+    <String, dynamic>{
       'data': instance.data,
     };
 
-RelationshipData _$RelationshipDataFromJson(Map<String, dynamic> json) =>
-    RelationshipData(
+RelationshipDataModel _$RelationshipDataModelFromJson(
+        Map<String, dynamic> json) =>
+    RelationshipDataModel(
       id: json['id'] as String?,
       type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$RelationshipDataToJson(RelationshipData instance) =>
+Map<String, dynamic> _$RelationshipDataModelToJson(
+        RelationshipDataModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'type': instance.type,
     };
 
-Links _$LinksFromJson(Map<String, dynamic> json) => Links(
+LinksModel _$LinksModelFromJson(Map<String, dynamic> json) => LinksModel(
       self: json['self'] as String?,
       current: json['current'] as String?,
       next: json['next'] as String?,
       last: json['last'] as String?,
     );
 
-Map<String, dynamic> _$LinksToJson(Links instance) => <String, dynamic>{
+Map<String, dynamic> _$LinksModelToJson(LinksModel instance) =>
+    <String, dynamic>{
       'self': instance.self,
       'current': instance.current,
       'next': instance.next,

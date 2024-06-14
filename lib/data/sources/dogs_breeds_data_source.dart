@@ -10,33 +10,33 @@ class DogsBreedsDataSourceImpl implements DogsBreedsDataSource {
     // Mock data source implementation
     await Future.delayed(const Duration(seconds: 5)); // Simulate network delay
     DogsBreedsModel breeds = DogsBreedsModel();
-    List<BreedsData>? itemsList = [
-      BreedsData(
+    List<BreedsDataModel>? itemsList = [
+      BreedsDataModel(
           id: "1",
           type: "UNO",
-          attributes: Attributes(
+          attributes: AttributesModel(
               name: "Perro Uno",
               description: "Es el perro numero 1",
-              life: Life(max: 10, min: 1),
-              femaleWeight: Weight(max: 10, min: 1),
-              maleWeight: Weight(max: 10, min: 1)),
-          relationships: Relationships(
-              group: Group(data: RelationshipData(id: "rel1", type: "type1")))),
-      BreedsData(
+              life: LifeModel(max: 10, min: 1),
+              femaleWeight: WeightModel(max: 10, min: 1),
+              maleWeight: WeightModel(max: 10, min: 1)),
+          relationships: RelationshipsModel(
+              group: GroupModel(data: RelationshipDataModel(id: "rel1", type: "type1")))),
+      BreedsDataModel(
           id: "2",
           type: "DOS",
-          attributes: Attributes(
+          attributes: AttributesModel(
               name: "Perro Dos",
               description: "Es el perro numero 2",
-              life: Life(max: 20, min: 2),
-              femaleWeight: Weight(max: 20, min: 2),
-              maleWeight: Weight(max: 20, min: 2)),
-          relationships: Relationships(
-              group: Group(data: RelationshipData(id: "rel2", type: "type2"))))
+              life: LifeModel(max: 20, min: 2),
+              femaleWeight: WeightModel(max: 20, min: 2),
+              maleWeight: WeightModel(max: 20, min: 2)),
+          relationships: RelationshipsModel(
+              group: GroupModel(data: RelationshipDataModel(id: "rel2", type: "type2"))))
     ];
 
     breeds.links =
-        Links(self: "self", current: "current", next: "next", last: "last");
+        LinksModel(self: "self", current: "current", next: "next", last: "last");
     breeds.data = itemsList;
 
     return breeds;

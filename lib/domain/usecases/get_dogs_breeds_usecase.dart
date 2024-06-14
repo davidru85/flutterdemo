@@ -6,7 +6,7 @@ class GetDogsBreedsUseCase {
 
   GetDogsBreedsUseCase(this.repository);
 
-  Future<List<DogsBreedsEntity>> call() async {
+  Future<DogsBreedsEntity> call() async {
     return await repository.getBreeds();
   }
 }

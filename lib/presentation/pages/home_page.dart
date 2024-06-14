@@ -40,11 +40,11 @@ class _HomePageState extends State<HomePage> {
             return Text('Error: ${snapshot.error}');
           } else {
             return ListView.builder(
-              itemCount: presenter.breedsList.length,
+              itemCount: presenter.breedsEntity.data?.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(
-                      "${presenter.breedsList[index].links?.current ?? "current"} + ${presenter.breedsList[index].links?.self ?? "self"}"),
+                      "${presenter.breedsEntity.data?[index].id ?? "id"} + ${presenter.breedsEntity.data?[index].type ?? "type"}"),
                 );
               },
             );

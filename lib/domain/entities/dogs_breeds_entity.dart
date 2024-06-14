@@ -1,36 +1,55 @@
+import 'package:myapp/data/models/dogs_breeds_model.dart';
+
 class DogsBreedsEntity {
-  List<BreedsData>? data;
-  Links? links;
+  List<BreedsDataEntity>? data;
+  LinksEntity? links;
 
   DogsBreedsEntity({
     this.data,
     this.links,
   });
+
+  factory DogsBreedsEntity.fromData(DogsBreedsModel? other) {
+    return DogsBreedsEntity(
+      data: (other?.data?.map((data) => BreedsDataEntity.fromData(data)))
+          ?.toList(),
+      links: LinksEntity.fromData(other?.links),
+    );
+  }
 }
 
-class BreedsData {
+class BreedsDataEntity {
   String? id;
   String? type;
-  Attributes? attributes;
-  Relationships? relationships;
+  AttributesEntity? attributes;
+  RelationshipsEntity? relationships;
 
-  BreedsData({
+  BreedsDataEntity({
     this.id,
     this.type,
     this.attributes,
     this.relationships,
   });
+
+  factory BreedsDataEntity.fromData(BreedsDataModel? other) {
+    return BreedsDataEntity(
+      id: other?.id,
+      type: other?.type,
+      attributes: AttributesEntity.fromData(other?.attributes),
+      relationships: RelationshipsEntity.fromData(other?.relationships),
+    );
+  }
 }
 
-class Attributes {
+class AttributesEntity {
   String? name;
   String? description;
-  Life? life;
-  Weight? maleWeight;
-  Weight? femaleWeight;
+  LifeEntity? life;
+  WeightEntity? maleWeight;
+  WeightEntity? femaleWeight;
   bool? hypoallergenic;
 
-  Attributes({
+  AttributesEntity({
     this.name,
     this.description,
     this.life,
@@ -38,64 +57,101 @@ class Attributes {
     this.femaleWeight,
     this.hypoallergenic,
   });
+
+  factory AttributesEntity.fromData(AttributesModel? other) {
+    return AttributesEntity(
+      name: other?.name,
+      description: other?.description,
+      life: LifeEntity.fromData(other?.life),
+      maleWeight: WeightEntity.fromData(other?.maleWeight),
+      femaleWeight: WeightEntity.fromData(other?.femaleWeight),
+      hypoallergenic: other?.hypoallergenic,
+    );
+  }
 }
 
-class Weight {
+class WeightEntity {
   int? max;
   int? min;
 
-  Weight({
+  WeightEntity({
     this.max,
     this.min,
   });
+  factory WeightEntity.fromData(WeightModel? other) {
+    return WeightEntity(
+      max: other?.max,
+      min: other?.min,
+    );
+  }
 }
 
-class Life {
+class LifeEntity {
   int? max;
   int? min;
 
-  Life({
+  LifeEntity({
     this.max,
     this.min,
   });
+
+  factory LifeEntity.fromData(LifeModel? other) {
+    return LifeEntity(
+      max: other?.max,
+      min: other?.min,
+    );
+  }
 }
 
-class Relationships {
-  Group? group;
+class RelationshipsEntity {
+  GroupEntity? group;
 
-  Relationships({
+  RelationshipsEntity({
     this.group,
   });
+
+  factory RelationshipsEntity.fromData(RelationshipsModel? other) {
+    return RelationshipsEntity(group: GroupEntity.fromData(other?.group));
+  }
 }
 
-class Group {
-  RelationshipData? data;
+class GroupEntity {
+  RelationshipDataEntity? data;
 
-  Group({
+  GroupEntity({
     this.data,
   });
+  factory GroupEntity.fromData(GroupModel? other) {
+    return GroupEntity(
+      data: RelationshipDataEntity.fromData(other?.data),
+    );
+  }
 }
 
-class RelationshipData {
+class RelationshipDataEntity {
   String? id;
   String? type;
 
-  RelationshipData({
-    this.id,
-    this.type,
-  });
+  RelationshipDataEntity({this.id, this.type});
+
+  factory RelationshipDataEntity.fromData(RelationshipDataModel? other) {
+    return RelationshipDataEntity(id: other?.id, type: other?.type);
+  }
 }
 
-class Links {
+class LinksEntity {
   String? self;
   String? current;
   String? next;
   String? last;
 
-  Links({
-    this.self,
-    this.current,
-    this.next,
-    this.last,
-  });
+  LinksEntity({this.self, this.current, this.next, this.last});
+
+  factory LinksEntity.fromData(LinksModel? other) {
+    return LinksEntity(
+        self: other?.self,
+        current: other?.current,
+        next: other?.next,
+        last: other?.last);
+  }
 }

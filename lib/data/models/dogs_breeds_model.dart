@@ -5,9 +5,9 @@ part 'dogs_breeds_model.g.dart';
 @JsonSerializable()
 class DogsBreedsModel {
     @JsonKey(name: "data")
-    List<BreedsData>? data;
+    List<BreedsDataModel>? data;
     @JsonKey(name: "links")
-    Links? links;
+    LinksModel? links;
 
     DogsBreedsModel({
         this.data,
@@ -20,44 +20,44 @@ class DogsBreedsModel {
 }
 
 @JsonSerializable()
-class BreedsData {
+class BreedsDataModel {
     @JsonKey(name: "id")
     String? id;
     @JsonKey(name: "type")
     String? type;
     @JsonKey(name: "attributes")
-    Attributes? attributes;
+    AttributesModel? attributes;
     @JsonKey(name: "relationships")
-    Relationships? relationships;
+    RelationshipsModel? relationships;
 
-    BreedsData({
+    BreedsDataModel({
         this.id,
         this.type,
         this.attributes,
         this.relationships,
     });
 
-    factory BreedsData.fromJson(Map<String, dynamic> json) => _$BreedsDataFromJson(json);
+    factory BreedsDataModel.fromJson(Map<String, dynamic> json) => _$BreedsDataModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$BreedsDataToJson(this);
+    Map<String, dynamic> toJson() => _$BreedsDataModelToJson(this);
 }
 
 @JsonSerializable()
-class Attributes {
+class AttributesModel {
     @JsonKey(name: "name")
     String? name;
     @JsonKey(name: "description")
     String? description;
     @JsonKey(name: "life")
-    Life? life;
+    LifeModel? life;
     @JsonKey(name: "male_weight")
-    Weight? maleWeight;
+    WeightModel? maleWeight;
     @JsonKey(name: "female_weight")
-    Weight? femaleWeight;
+    WeightModel? femaleWeight;
     @JsonKey(name: "hypoallergenic")
     bool? hypoallergenic;
 
-    Attributes({
+    AttributesModel({
         this.name,
         this.description,
         this.life,
@@ -66,92 +66,92 @@ class Attributes {
         this.hypoallergenic,
     });
 
-    factory Attributes.fromJson(Map<String, dynamic> json) => _$AttributesFromJson(json);
+    factory AttributesModel.fromJson(Map<String, dynamic> json) => _$AttributesModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$AttributesToJson(this);
+    Map<String, dynamic> toJson() => _$AttributesModelToJson(this);
 }
 
 @JsonSerializable()
-class Weight {
+class WeightModel {
     @JsonKey(name: "max")
     int? max;
     @JsonKey(name: "min")
     int? min;
 
-    Weight({
+    WeightModel({
         this.max,
         this.min,
     });
 
-    factory Weight.fromJson(Map<String, dynamic> json) => _$WeightFromJson(json);
+    factory WeightModel.fromJson(Map<String, dynamic> json) => _$WeightModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$WeightToJson(this);
+    Map<String, dynamic> toJson() => _$WeightModelToJson(this);
 }
 
 @JsonSerializable()
-class Life {
+class LifeModel {
     @JsonKey(name: "max")
     int? max;
     @JsonKey(name: "min")
     int? min;
 
-    Life({
+    LifeModel({
         this.max,
         this.min,
     });
 
-    factory Life.fromJson(Map<String, dynamic> json) => _$LifeFromJson(json);
+    factory LifeModel.fromJson(Map<String, dynamic> json) => _$LifeModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$LifeToJson(this);
+    Map<String, dynamic> toJson() => _$LifeModelToJson(this);
 }
 
 @JsonSerializable()
-class Relationships {
+class RelationshipsModel {
     @JsonKey(name: "group")
-    Group? group;
+    GroupModel? group;
 
-    Relationships({
+    RelationshipsModel({
         this.group,
     });
 
-    factory Relationships.fromJson(Map<String, dynamic> json) => _$RelationshipsFromJson(json);
+    factory RelationshipsModel.fromJson(Map<String, dynamic> json) => _$RelationshipsModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$RelationshipsToJson(this);
+    Map<String, dynamic> toJson() => _$RelationshipsModelToJson(this);
 }
 
 @JsonSerializable()
-class Group {
+class GroupModel {
     @JsonKey(name: "data")
-    RelationshipData? data;
+    RelationshipDataModel? data;
 
-    Group({
+    GroupModel({
         this.data,
     });
 
-    factory Group.fromJson(Map<String, dynamic> json) => _$GroupFromJson(json);
+    factory GroupModel.fromJson(Map<String, dynamic> json) => _$GroupModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$GroupToJson(this);
+    Map<String, dynamic> toJson() => _$GroupModelToJson(this);
 }
 
 @JsonSerializable()
-class RelationshipData {
+class RelationshipDataModel {
     @JsonKey(name: "id")
     String? id;
     @JsonKey(name: "type")
     String? type;
 
-    RelationshipData({
+    RelationshipDataModel({
         this.id,
         this.type,
     });
 
-    factory RelationshipData.fromJson(Map<String, dynamic> json) => _$RelationshipDataFromJson(json);
+    factory RelationshipDataModel.fromJson(Map<String, dynamic> json) => _$RelationshipDataModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$RelationshipDataToJson(this);
+    Map<String, dynamic> toJson() => _$RelationshipDataModelToJson(this);
 }
 
 @JsonSerializable()
-class Links {
+class LinksModel {
     @JsonKey(name: "self")
     String? self;
     @JsonKey(name: "current")
@@ -161,14 +161,14 @@ class Links {
     @JsonKey(name: "last")
     String? last;
 
-    Links({
+    LinksModel({
         this.self,
         this.current,
         this.next,
         this.last,
     });
 
-    factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
+    factory LinksModel.fromJson(Map<String, dynamic> json) => _$LinksModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$LinksToJson(this);
+    Map<String, dynamic> toJson() => _$LinksModelToJson(this);
 }

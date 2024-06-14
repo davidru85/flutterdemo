@@ -8,8 +8,8 @@ class DogsBreedsRepositoryImpl implements DogsBreedsRepository {
   DogsBreedsRepositoryImpl(this.dataSource);
 
   @override
-  Future<List<DogsBreedsEntity>> getBreeds() async {
+  Future<DogsBreedsEntity> getBreeds() async {
     final models = await dataSource.fetchBreeds();
-    return models.map((model) => DogsBreedsEntity(data: [], links: Links())).toList();
+    return DogsBreedsEntity.fromData(models);
   }
 }

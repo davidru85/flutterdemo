@@ -7,11 +7,11 @@ class DogsBreedsPresenter with ChangeNotifier {
 
   DogsBreedsPresenter({required this.getDogsBreedsUseCase});
 
-  List<DogsBreedsEntity> _breedsList = [];
-  List<DogsBreedsEntity> get breedsList => _breedsList;
+  DogsBreedsEntity _breedsEntity = DogsBreedsEntity();
+  DogsBreedsEntity get breedsEntity => _breedsEntity;
 
   Future<void> fetchDogsBreed() async {
-    _breedsList = await getDogsBreedsUseCase();
+    _breedsEntity = await getDogsBreedsUseCase();
     notifyListeners();
   }
 }
