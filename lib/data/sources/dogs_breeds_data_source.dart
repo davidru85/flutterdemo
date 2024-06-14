@@ -1,20 +1,20 @@
-import '../models/dog_breed_model.dart';
+import '../models/dogs_breeds_model.dart';
 
-abstract class DogsBreedDataSource {
-  Future<List<DogBreedModel>> fetchBreeds();
+abstract class DogsBreedsDataSource {
+  Future<List<DogsBreedsModel>> fetchBreeds();
 }
 
-class DogsBreedDataSourceImpl implements DogsBreedDataSource {
+class DogsBreedsDataSourceImpl implements DogsBreedsDataSource {
   @override
-  Future<List<DogBreedModel>> fetchBreeds() async {
+  Future<List<DogsBreedsModel>> fetchBreeds() async {
     // Mock data source implementation
     await Future.delayed(const Duration(seconds: 5)); // Simulate network delay
-    List<DogBreedModel> itemsList = [];
+    List<DogsBreedsModel> itemsList = [];
     for (int i = 0; i < 20; i++) {
       itemsList.add(
-        DogBreedModel(
+        DogsBreedsModel(
             data: [
-              BreedData(
+              BreedsData(
                   id: "1",
                   type: "UNO",
                   attributes: Attributes(
@@ -26,7 +26,7 @@ class DogsBreedDataSourceImpl implements DogsBreedDataSource {
                   relationships: Relationships(
                       group: Group(
                           data: RelationshipData(id: "rel1", type: "type1")))),
-              BreedData(
+              BreedsData(
                   id: "2",
                   type: "DOS",
                   attributes: Attributes(

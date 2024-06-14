@@ -1,26 +1,26 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'dog_breed_model.g.dart';
+part 'dogs_breeds_model.g.dart';
 
 @JsonSerializable()
-class DogBreedModel {
+class DogsBreedsModel {
     @JsonKey(name: "data")
-    List<BreedData>? data;
+    List<BreedsData>? data;
     @JsonKey(name: "links")
     Links? links;
 
-    DogBreedModel({
+    DogsBreedsModel({
         this.data,
         this.links,
     });
 
-    factory DogBreedModel.fromJson(Map<String, dynamic> json) => _$DogBreedModelFromJson(json);
+    factory DogsBreedsModel.fromJson(Map<String, dynamic> json) => _$DogsBreedsModelFromJson(json);
 
-    Map<String, dynamic> toJson() => _$DogBreedModelToJson(this);
+    Map<String, dynamic> toJson() => _$DogsBreedsModelToJson(this);
 }
 
 @JsonSerializable()
-class BreedData {
+class BreedsData {
     @JsonKey(name: "id")
     String? id;
     @JsonKey(name: "type")
@@ -30,16 +30,16 @@ class BreedData {
     @JsonKey(name: "relationships")
     Relationships? relationships;
 
-    BreedData({
+    BreedsData({
         this.id,
         this.type,
         this.attributes,
         this.relationships,
     });
 
-    factory BreedData.fromJson(Map<String, dynamic> json) => _$BreedDataFromJson(json);
+    factory BreedsData.fromJson(Map<String, dynamic> json) => _$BreedsDataFromJson(json);
 
-    Map<String, dynamic> toJson() => _$BreedDataToJson(this);
+    Map<String, dynamic> toJson() => _$BreedsDataToJson(this);
 }
 
 @JsonSerializable()

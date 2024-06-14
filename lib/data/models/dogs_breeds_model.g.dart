@@ -1,28 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'dog_breed_model.dart';
+part of 'dogs_breeds_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-DogBreedModel _$DogBreedModelFromJson(Map<String, dynamic> json) =>
-    DogBreedModel(
+DogsBreedsModel _$DogsBreedsModelFromJson(Map<String, dynamic> json) =>
+    DogsBreedsModel(
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => BreedData.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => BreedsData.fromJson(e as Map<String, dynamic>))
           .toList(),
       links: json['links'] == null
           ? null
           : Links.fromJson(json['links'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$DogBreedModelToJson(DogBreedModel instance) =>
+Map<String, dynamic> _$DogsBreedsModelToJson(DogsBreedsModel instance) =>
     <String, dynamic>{
       'data': instance.data,
       'links': instance.links,
     };
 
-BreedData _$BreedDataFromJson(Map<String, dynamic> json) => BreedData(
+BreedsData _$BreedsDataFromJson(Map<String, dynamic> json) => BreedsData(
       id: json['id'] as String?,
       type: json['type'] as String?,
       attributes: json['attributes'] == null
@@ -34,7 +34,8 @@ BreedData _$BreedDataFromJson(Map<String, dynamic> json) => BreedData(
               json['relationships'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$BreedDataToJson(BreedData instance) => <String, dynamic>{
+Map<String, dynamic> _$BreedsDataToJson(BreedsData instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'type': instance.type,
       'attributes': instance.attributes,
