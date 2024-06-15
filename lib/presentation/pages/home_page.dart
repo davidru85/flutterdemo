@@ -10,7 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<void> _fetchExamplesFuture;
   late Future<void> _fetchDogsBreedsFuture;
 
   @override
