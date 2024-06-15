@@ -56,19 +56,11 @@ class DogsBreedsDataSourceRemoteImpl implements DogsBreedsDataSource {
 
   @override
   Future<DogsBreedsModel> fetchBreeds() async {
-  
     try {
       final response = await apiService.getRequest("breeds");
-      DogsBreedsModel model = DogsBreedsModel.fromJson(jsonDecode(response.body));
-      return model;
-      //setState(() {
-        //getData = response.body;
-      //});
+      return DogsBreedsModel.fromJson(jsonDecode(response.body));
     } catch (e) {
-      return DogsBreedsModel();
-      //setState(() {
-        //getData = 'Error: $e';
-      //});
+      rethrow;
     }
   }
 }
