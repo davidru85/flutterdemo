@@ -49,7 +49,9 @@ class _HomePageState extends State<HomePage> {
                   onTap: () => showModalBottomSheet<void>(
                     context: context,
                     builder: (BuildContext context) {
-                      return SizedBox(
+                      return Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 15.0),
                         height: 200,
                         child: Center(
                           child: Text(presenter.breedsEntity.data?[index]
