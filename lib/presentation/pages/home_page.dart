@@ -44,9 +44,21 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(
-                      presenter.breedsEntity.data?[index].attributes?.name ?? "name"),
-                  subtitle: Text(
-                      presenter.breedsEntity.data?[index].attributes?.description ?? "Desctription"),
+                      presenter.breedsEntity.data?[index].attributes?.name ??
+                          "name"),
+                  onTap: () => showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return SizedBox(
+                        height: 200,
+                        child: Center(
+                          child: Text(presenter.breedsEntity.data?[index]
+                                  .attributes?.description ??
+                              "Desctription"),
+                        ),
+                      );
+                    },
+                  ),
                 );
               },
             );
