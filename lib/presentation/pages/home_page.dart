@@ -44,7 +44,9 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(
-                      "${presenter.breedsEntity.data?[index].id ?? "id"} + ${presenter.breedsEntity.data?[index].type ?? "type"}"),
+                      presenter.breedsEntity.data?[index].attributes?.name ?? "name"),
+                  subtitle: Text(
+                      presenter.breedsEntity.data?[index].attributes?.description ?? "Desctription"),
                 );
               },
             );
