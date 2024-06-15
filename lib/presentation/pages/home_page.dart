@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/presentation/dogs_breeds_presenter.dart';
 import 'package:provider/provider.dart';
-import '../bloc_example_bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,8 +16,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _fetchExamplesFuture =
-        Provider.of<BlocExampleBloc>(context, listen: false).fetchExamples();
     _fetchDogsBreedsFuture =
         Provider.of<DogsBreedsPresenter>(context, listen: false)
             .fetchDogsBreed();
@@ -26,7 +23,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of<BlocExampleBloc>(context);
     final presenter = Provider.of<DogsBreedsPresenter>(context);
 
     return Scaffold(
