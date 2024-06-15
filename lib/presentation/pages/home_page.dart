@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                         child: Center(
                           child: Text(presenter.breedsEntity.data?[index]
                                   .attributes?.description ??
-                              "Desctription"),
+                              "Description"),
                         ),
                       );
                     },
