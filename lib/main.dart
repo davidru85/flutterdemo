@@ -25,7 +25,8 @@ void main() {
         ChangeNotifierProvider(
           create: (_) => DogsBreedsPresenter(
             getDogsBreedsUseCase: GetDogsBreedsUseCase(
-              DogsBreedsRepositoryImpl(DogsBreedsDataSourceRemoteImpl(DogsBreedsApi("https://dogapi.dog/api/v2"))),
+              DogsBreedsRepositoryImpl(DogsBreedsDataSourceRemoteImpl(
+                  DogsBreedsApi("https://dogapi.dog/api/v2"))),
             ),
           ),
         ),
