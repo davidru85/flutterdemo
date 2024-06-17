@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:myapp/data/repositories/dogs_breeds_repository_impl.dart';
 import 'package:myapp/data/sources/dogs_breeds_api.dart';
@@ -8,14 +10,22 @@ import 'package:provider/provider.dart';
 import 'core/app_widget.dart';
 
 void main() {
+  DogsBreedsDataSource dogsBreedsRepository;
+  bool remote = Random().nextBool();
+  if (remote) {
+    dogsBreedsRepository = DogsBreedsDataSourceRemoteImpl(
+        DogsBreedsApi("https://dogapi.dog/api/v2"));
+  } else {
+    dogsBreedsRepository = DogsBreedsDataSourceLocalImpl();
+  }
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
           create: (_) => DogsBreedsPresenter(
             getDogsBreedsUseCase: GetDogsBreedsUseCase(
-              DogsBreedsRepositoryImpl(DogsBreedsDataSourceRemoteImpl(
-                  DogsBreedsApi("https://dogapi.dog/api/v2"))),
+              DogsBreedsRepositoryImpl(dogsBreedsRepository),
             ),
           ),
         ),
