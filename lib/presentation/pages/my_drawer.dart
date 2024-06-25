@@ -25,18 +25,18 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.pageview),
-            title: const Text('Home'),
+            title: const Text('Breeds'),
             onTap: () {
-              onItemTap('/home');
               Navigator.of(context).pop();
+              onItemTap('/breeds');
             },
           ),
           ListTile(
             leading: const Icon(Icons.pages),
             title: const Text('About'),
             onTap: () {
-              onItemTap('/about');
               Navigator.of(context).pop();
+              onItemTap('/about');
             },
           ),
         ],

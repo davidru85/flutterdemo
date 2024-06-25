@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/presentation/pages/about_page.dart';
+import 'package:myapp/presentation/pages/breeds_page.dart';
 import '../presentation/pages/home_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -14,7 +15,7 @@ class AppWidget extends StatelessWidget {
       ),
       home: const HomePage(),
       routes: {
-        '/home': (context) => const HomePage(),
+        '/breeds': (context) => const BreedsPage(),
         '/about': (context) => const AboutPage(),
       },
     );
