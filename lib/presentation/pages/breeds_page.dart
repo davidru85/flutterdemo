@@ -25,7 +25,7 @@ class _BreedsPageState extends State<BreedsPage> {
     final presenter = Provider.of<DogsBreedsPresenter>(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Page')),
+      appBar: AppBar(title: const Text('Breeds Page')),
       body: FutureBuilder(
         future: _fetchDogsBreedsFuture,
         builder: (context, snapshot) {
