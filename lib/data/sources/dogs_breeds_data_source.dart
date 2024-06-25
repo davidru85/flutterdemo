@@ -12,7 +12,7 @@ class DogsBreedsDataSourceLocalImpl implements DogsBreedsDataSource {
   @override
   Future<DogsBreedsModel> fetchBreeds() async {
     // Mock data source implementation
-    await Future.delayed(const Duration(seconds: 5)); // Simulate network delay
+    await Future.delayed(const Duration(seconds: 2)); // Simulate network delay
     DogsBreedsModel breeds = DogsBreedsModel();
     List<BreedsDataModel>? itemsList = [
       BreedsDataModel(
