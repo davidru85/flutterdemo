@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/presentation/dogs_breeds_presenter.dart';
+import 'package:myapp/presentation/pages/my_drawer.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,6 +27,11 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Home Page')),
+      drawer: MyDrawer(
+        onItemTap: (route) {
+          Navigator.of(context).pushNamed(route);
+        },
+      ),
       body: FutureBuilder(
         future: _fetchDogsBreedsFuture,
         builder: (context, snapshot) {

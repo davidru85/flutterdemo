@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/presentation/pages/about_page.dart';
 import '../presentation/pages/home_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -12,6 +13,10 @@ class AppWidget extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const HomePage(),
+      routes: {
+        '/home': (context) => const HomePage(),
+        '/about': (context) => const AboutPage(),
+      },
     );
   }
 }
