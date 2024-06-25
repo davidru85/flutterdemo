@@ -13,7 +13,7 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: HomePage(),
       routes: {
         '/breeds': (context) => const BreedsPage(),
         '/about': (context) => const AboutPage(),

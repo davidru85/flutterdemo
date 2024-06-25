@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
-  final Function(String) onItemTap;
+  final Function(int) onItemTap;
 
   const MyDrawer({required this.onItemTap});
 
@@ -24,19 +24,19 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.pageview),
+            leading: const Icon(Icons.list_alt),
             title: const Text('Breeds'),
             onTap: () {
               Navigator.of(context).pop();
-              onItemTap('/breeds');
+              onItemTap(0);
             },
           ),
           ListTile(
-            leading: const Icon(Icons.pages),
+            leading: const Icon(Icons.info_outline),
             title: const Text('About'),
             onTap: () {
               Navigator.of(context).pop();
-              onItemTap('/about');
+              onItemTap(1);
             },
           ),
         ],

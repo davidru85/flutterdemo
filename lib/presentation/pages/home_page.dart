@@ -1,21 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/presentation/pages/about_page.dart';
 import 'package:myapp/presentation/pages/breeds_page.dart';
 import 'package:myapp/presentation/pages/my_drawer.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  @override
+  _HomePage createState() => _HomePage();
+}
 
-  
+class _HomePage extends State<HomePage> {
+  int myIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
       drawer: MyDrawer(
-        onItemTap: (route) {
-          Navigator.of(context).pushNamed(route);
+        onItemTap: (newIndex) {
+          setState(() {
+            myIndex = newIndex;
+          });
         },
       ),
-      body: BreedsPage(),
+
+      body: myIndex == 0 ? const BreedsPage() : const AboutPage(),
     );
   }
 }
