@@ -17,10 +17,10 @@ class DogsBreedsDataSourceLocalImpl implements DogsBreedsDataSource {
     List<BreedsDataModel>? itemsList = [
       BreedsDataModel(
           id: "1",
-          type: "UNO",
+          type: "ONE",
           attributes: AttributesModel(
-              name: "Perro Uno",
-              description: "Es el perro numero 1",
+              name: "First dog",
+              description: "This is the first dog breed",
               life: LifeModel(max: 10, min: 1),
               femaleWeight: WeightModel(max: 10, min: 1),
               maleWeight: WeightModel(max: 10, min: 1)),
@@ -29,10 +29,10 @@ class DogsBreedsDataSourceLocalImpl implements DogsBreedsDataSource {
                   data: RelationshipDataModel(id: "rel1", type: "type1")))),
       BreedsDataModel(
           id: "2",
-          type: "DOS",
+          type: "TWO",
           attributes: AttributesModel(
-              name: "Perro Dos",
-              description: "Es el perro numero 2",
+              name: "Dog two",
+              description: "This is the second dog breed",
               life: LifeModel(max: 20, min: 2),
               femaleWeight: WeightModel(max: 20, min: 2),
               maleWeight: WeightModel(max: 20, min: 2)),
