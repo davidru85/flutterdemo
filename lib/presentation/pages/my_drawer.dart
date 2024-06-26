@@ -16,7 +16,7 @@ class MyDrawer extends StatelessWidget {
               color: Colors.blue,
             ),
             child: Text(
-              'Drawer Header',
+              'Drawer Menu',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/core/platform_utils.dart';
@@ -17,19 +15,30 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var scaffoldKey = GlobalKey<ScaffoldState>();
+
     return (PlatformUtils.isApple)
         ? CupertinoPageScaffold(
             navigationBar: CupertinoNavigationBar(
               middle: const Text('Home'),
               leading: GestureDetector(
                 onTap: () => _showCupertinoDrawer(context),
-                child: const Icon(CupertinoIcons.list_bullet),
+                child: const Icon(Icons.menu_open_outlined),
               ),
             ),
             child: myIndex == 0 ? const BreedsPage() : const AboutPage(),
           )
         : Scaffold(
-            appBar: AppBar(title: const Text('Home')),
+            key: scaffoldKey,
+            appBar: AppBar(
+              title: const Text('Home'),
+              leading: IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  scaffoldKey.currentState?.openDrawer();
+                },
+              ),
+            ),
             drawer: MyDrawer(
               onItemTap: (newIndex) {
                 setState(() {
@@ -41,13 +50,12 @@ class _HomePage extends State<HomePage> {
           );
   }
 
-
-void _showCupertinoDrawer(BuildContext context) {
+  void _showCupertinoDrawer(BuildContext context) {
     showCupertinoModalPopup(
       context: context,
       builder: (BuildContext context) {
         return CupertinoActionSheet(
-          title: const Text('Drawer'),
+          title: const Text('Drawer Menu'),
           actions: <Widget>[
             CupertinoActionSheetAction(
               child: const Text('Breeds'),
@@ -78,5 +86,4 @@ void _showCupertinoDrawer(BuildContext context) {
       },
     );
   }
-
 }

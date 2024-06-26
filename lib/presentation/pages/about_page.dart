@@ -7,14 +7,21 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String pageTitle = "About Page";
+    String pageMiddleText = "About";
+
     return (PlatformUtils.isApple)
-        ? const CupertinoPageScaffold(
-            
-            child: Text('About'),
+        ? CupertinoPageScaffold(
+            navigationBar: CupertinoNavigationBar(
+              middle: Text(pageTitle),
+            ),
+            child: Center(
+              child: Text(pageMiddleText),
+            ),
           )
         : Scaffold(
-            appBar: AppBar(title: const Text('About Page')),
-            body: const Text('About'),
+            appBar: AppBar(title: Text(pageTitle)),
+            body: Text(pageMiddleText),
           );
   }
 }
