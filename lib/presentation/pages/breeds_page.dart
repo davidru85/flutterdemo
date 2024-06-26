@@ -33,7 +33,7 @@ class _BreedsPageState extends State<BreedsPage> {
             navigationBar: CupertinoNavigationBar(
               middle: Text(pageTitle),
             ),
-            child: fetchBuilder(presenter, _fetchDogsBreedsFuture),
+            child: fetchCupertinoBuilder(presenter, _fetchDogsBreedsFuture),
           )
         : Scaffold(
             appBar: AppBar(title: Text(pageTitle)),
@@ -42,13 +42,50 @@ class _BreedsPageState extends State<BreedsPage> {
   }
 }
 
-FutureBuilder fetchBuilder(
+FutureBuilder fetchCupertinoBuilder(
     DogsBreedsPresenter presenter, Future<void> fetchDogsBreedsFuture) {
   return FutureBuilder(
     future: fetchDogsBreedsFuture,
     builder: (context, snapshot) {
       if (snapshot.connectionState == ConnectionState.waiting) {
         return const Center(child: CupertinoActivityIndicator());
+      } else if (snapshot.hasError) {
+        return Text('Error: ${snapshot.error}');
+      } else {
+        return ListView.builder(
+            itemCount: presenter.breedsEntity.data?.length,
+            itemBuilder: (context, index) {
+              return CupertinoListTile(
+                title: Text(
+                    presenter.breedsEntity.data?[index].attributes?.name ??
+                        "name"),
+                onTap: () => showCupertinoModalPopup<void>(
+                    context: context,
+                    builder: (BuildContext modalContext) => Container(
+                          color: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 15.0),
+                          height: 200,
+                          child: Center(
+                            child: Text(presenter.breedsEntity.data?[index]
+                                    .attributes?.description ??
+                                "Description"),
+                          ),
+                        )),
+              );
+            });
+      }
+    },
+  );
+}
+
+FutureBuilder fetchBuilder(
+    DogsBreedsPresenter presenter, Future<void> fetchDogsBreedsFuture) {
+  return FutureBuilder(
+    future: fetchDogsBreedsFuture,
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.waiting) {
+        return const Center(child: CircularProgressIndicator());
       } else if (snapshot.hasError) {
         return Text('Error: ${snapshot.error}');
       } else {
