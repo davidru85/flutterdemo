@@ -31,7 +31,7 @@ samples, guidance on mobile development, and a full API reference.
 
 1. Clone the repository:
     ```sh
-    git clone https://git.naspersclassifieds.com/shared-services/payment-solutions/advertising/playground/flutterdemo.git
+    git clone https://github.com/davidru85/flutterdemo.git
     cd flutterdemo
     ```
 
